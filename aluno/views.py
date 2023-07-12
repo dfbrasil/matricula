@@ -57,11 +57,15 @@ def index(request):
 
 def curso_criar(request):
     if request.method == 'POST':
-        pass
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = CursoForm()
+            return redirect('curso_listar')
     else:    
         form = CursoForm
     
-    return render(request,'',{'form':form})
+    return render(request,'curso/form.html',{'form':form})
 
 
 def curso_listar(request):
@@ -70,3 +74,8 @@ def curso_listar(request):
         'cursos':cursos
     }
     return render(request, "curso/cursos.html",context)
+
+def curso_remover(request, id):
+    curso = get_object_or_404(Curso, id=id)
+    curso.delete()
+    return redirect('curso_listar')
