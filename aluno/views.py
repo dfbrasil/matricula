@@ -2,19 +2,20 @@ from django.shortcuts import render,get_object_or_404,redirect
 from .models import Aluno,Curso,Cidade
 from .forms import AlunoForm, CursoForm
 
-def aluno_editar(request,id):
-    aluno = get_object_or_404(Aluno,id=id)
-   
+def aluno_editar(request, id):
+    aluno = get_object_or_404(Aluno, id=id)
     if request.method == 'POST':
-        form = AlunoForm(request.POST,instance=aluno)
-
+        form = AlunoForm(request.POST, request.FILES, instance=aluno)
+        print("CHEGOU AQUI")
         if form.is_valid():
+            print("CHEGOU AQUI 2 ")
+
             form.save()
             return redirect('aluno_listar')
     else:
         form = AlunoForm(instance=aluno)
+    return render(request, 'aluno/form.html', {'form': form})
 
-    return render(request,'aluno/form.html',{'form':form})
 
 
 def aluno_remover(request, id):

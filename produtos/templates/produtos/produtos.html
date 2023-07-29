@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Jeferson Variedades</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Jeferson Variedades</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Início</a>
+          </li>
+          <!-- Adicione mais itens de menu aqui -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main">
+
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Seja bem-vindos ao maior e-commerce do alto oeste.</h1>
+            <p class="lead text-muted">Conheça a Jeferson Variedades, o principal e-commerce do Alto Oeste Potiguar, oferecendo uma vasta seleção de produtos com um serviço ao cliente impecável</p>
+           </div>
+        </section>
+  
+        <div class="album py-5 bg-light">
+          <div class="container">
+  
+            <div class="row">
+            {% for produto in lista %} 
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <img class="card-img-top" src="{{ produto.imagem.url }}" alt="Nome do Produto" style="width: 100%; height: 200px; object-fit: contain;">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="{% url 'detalhe_produto' produto.id %}" class="btn btn-primary">Comprar</a>
+                          </div>
+                          <h5 class="text-primary">R$ {{ produto.preco }}</h5>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}      
+     
+                
+              
+            </div>
+          </div>
+        </div>
+  
+      </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

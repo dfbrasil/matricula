@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>{{ produto.nome }}</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Jeferson Variedades</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Início</a>
+        </li>
+        <!-- Adicione mais itens de menu aqui -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main role="main">
+    <section class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <!-- Coluna da imagem -->
+          <div class="col-md-6">
+            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="width: 100%; height: auto; object-fit: contain;">
+          </div>
+          <!-- Coluna das informações do produto -->
+          <div class="col-md-6">
+            <h1 class="jumbotron-heading">{{ produto.nome }}</h1>
+            <h4 class="text-primary mt-4">R$ {{ produto.preco }}</h4>
+            <p class="lead text-muted">{{ produto.descricao }}</p>
+            <div class="btn-group">
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

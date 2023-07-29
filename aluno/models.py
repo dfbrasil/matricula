@@ -20,4 +20,5 @@ class Aluno(models.Model):
     email = models.EmailField()
     cidade = models.ForeignKey(Cidade,on_delete=models.CASCADE)
     curso = models.ForeignKey(Curso,on_delete=models.CASCADE)
-
+    imagem = models.ImageField(upload_to='alunos',null=True,blank=True)
+    valor = models.FloatField(null=True,blank=True)
