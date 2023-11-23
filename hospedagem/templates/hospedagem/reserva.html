@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block center %}
+  <h2> Lista de Reservas</h2>
+
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'hospedagem_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+  </div>
+
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Data de Entrada</th>
+        <th>Data de Saída</th>
+        <th>Quartos</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reserva in reservas %}  
+      <tr>
+        <td>{{ reserva.cliente }}</td>
+        <td>{{ reserva.data_entrada }}</td>
+        <td>{{ reserva.data_saida }}</td>
+        <td>{{ reserva.quarto }}</td>
+        <td>{{ reserva.valor }}</td>
+        <td>
+          <a href="{% url 'hospedagem_editar' id=reserva.id %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'hospedagem_remover' id=reserva.id %}" class="btn btn-danger btn-sm">Remover</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'pagination.html' %}
+
+{% endblock %}

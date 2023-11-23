@@ -16,15 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from aluno  import views
+from hospedagem  import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
-    path('aluno/editar/<int:id>/', views.AlunoEditar.as_view(), name='aluno_editar'),
-    path('aluno/criar/', views.AlunoCriar.as_view(), name='aluno_criar'),
-    path('aluno/remover/<int:id>/', views.AlunoRemover.as_view(), name='aluno_remover'),
-    path('aluno/listar/', views.AlunoListar.as_view(), name='aluno_listar'),
+    path('hospedagem/editar/<int:id>/', views.HospedagemEditar.as_view(), name='hospedagem_editar'),
+    path('hospedagem/criar/', views.HospedagemCriar.as_view(), name='hospedagem_criar'),
+    path('hospedagem/remover/<int:id>/', views.HospedagemRemover.as_view(), name='hospedagem_remover'),
+    path('hospedagem/listar/', views.HospedagemListar.as_view(), name='hospedagem_listar'),
 
 ]
 
